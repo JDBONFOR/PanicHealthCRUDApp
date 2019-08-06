@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+using PanicHealth.Models;
+using PanicHealth.Repositories;
 
 namespace PanicHealth
 {
@@ -25,6 +28,14 @@ namespace PanicHealth
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            // Agrego el contexto al proyecto.
+            var connection = Configuration.GetConnectionString("panicHealth");
+            services.AddDbContext<panicHealthAppContext>(opt =>
+                opt.UseMySql(connection));
+
+            services.AddScoped<UsuarioRepository>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

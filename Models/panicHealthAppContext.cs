@@ -32,7 +32,7 @@ namespace PanicHealth.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseMySql("Server=127.0.0.1; Port=3306; Database=panicHealthApp; Uid=root; Pwd=password;");
             }
         }
@@ -328,62 +328,62 @@ namespace PanicHealth.Models
 
             modelBuilder.Entity<Usuario>(entity =>
             {
-                entity.HasKey(e => e.UsuIid);
+                entity.HasKey(e => e.usu_iid);
 
                 entity.ToTable("usuario");
 
-                entity.HasIndex(e => e.UsuEstado)
+                entity.HasIndex(e => e.usu_estado)
                     .HasName("fk_cat");
 
-                entity.HasIndex(e => e.UsuTipo)
+                entity.HasIndex(e => e.usu_tipo)
                     .HasName("fk_usu_tipo");
 
-                entity.Property(e => e.UsuIid)
+                entity.Property(e => e.usu_iid)
                     .HasColumnName("usu_iid")
                     .HasColumnType("int(11)")
                     .ValueGeneratedOnAdd();
 
-                entity.Property(e => e.UsuDatecreated)
+                entity.Property(e => e.usu_datecreated)
                     .HasColumnName("usu_datecreated")
                     .HasColumnType("date");
 
-                entity.Property(e => e.UsuDni)
+                entity.Property(e => e.usu_dni)
                     .IsRequired()
                     .HasColumnName("usu_dni")
                     .HasColumnType("varchar(50)");
 
-                entity.Property(e => e.UsuEmail)
+                entity.Property(e => e.usu_email)
                     .IsRequired()
                     .HasColumnName("usu_email")
                     .HasColumnType("varchar(50)");
 
-                entity.Property(e => e.UsuEstado)
+                entity.Property(e => e.usu_estado)
                     .HasColumnName("usu_estado")
                     .HasColumnType("int(11)");
 
-                entity.Property(e => e.UsuPassword)
+                entity.Property(e => e.usu_password)
                     .IsRequired()
                     .HasColumnName("usu_password")
                     .HasColumnType("varchar(50)");
 
-                entity.Property(e => e.UsuTipo)
+                entity.Property(e => e.usu_tipo)
                     .HasColumnName("usu_tipo")
                     .HasColumnType("int(11)");
 
                 entity.HasOne(d => d.UsuEstadoNavigation)
                     .WithMany(p => p.Usuario)
-                    .HasForeignKey(d => d.UsuEstado)
+                    .HasForeignKey(d => d.usu_estado)
                     .HasConstraintName("usuario_ibfk_1");
 
                 entity.HasOne(d => d.UsuI)
                     .WithOne(p => p.Usuario)
-                    .HasForeignKey<Usuario>(d => d.UsuIid)
+                    .HasForeignKey<Usuario>(d => d.usu_iid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("usuario_ibfk_4");
 
                 entity.HasOne(d => d.UsuTipoNavigation)
                     .WithMany(p => p.Usuario)
-                    .HasForeignKey(d => d.UsuTipo)
+                    .HasForeignKey(d => d.usu_tipo)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("usuario_ibfk_3");
             });
