@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace PanicHealth.Models
 {
-    public partial class panicHealthAppContext : DbContext
+    public class panicHealthAppContext : DbContext
     {
         public panicHealthAppContext()
         {
@@ -39,48 +39,7 @@ namespace PanicHealth.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AccionTipo>(entity =>
-            {
-                entity.HasKey(e => e.AccIid);
-
-                entity.ToTable("accion_tipo");
-
-                entity.Property(e => e.AccIid)
-                    .HasColumnName("acc_iid")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.AccDescripcion)
-                    .IsRequired()
-                    .HasColumnName("acc_descripcion")
-                    .HasColumnType("varchar(50)");
-            });
-
-            modelBuilder.Entity<ObraSocial>(entity =>
-            {
-                entity.HasKey(e => e.OsIid);
-
-                entity.ToTable("obra_social");
-
-                entity.Property(e => e.OsIid)
-                    .HasColumnName("os_iid")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.OsDireccion)
-                    .IsRequired()
-                    .HasColumnName("os_direccion")
-                    .HasColumnType("varchar(50)");
-
-                entity.Property(e => e.OsNombre)
-                    .IsRequired()
-                    .HasColumnName("os_nombre")
-                    .HasColumnType("varchar(50)");
-
-                entity.Property(e => e.OsTelefono)
-                    .IsRequired()
-                    .HasColumnName("os_telefono")
-                    .HasColumnType("varchar(50)");
-            });
-
+            // Tienen crud
             modelBuilder.Entity<Paciente>(entity =>
             {
                 entity.HasKey(e => e.PacIid);
@@ -294,38 +253,6 @@ namespace PanicHealth.Models
                     .HasColumnType("varchar(50)");
             });
 
-            modelBuilder.Entity<TipoDocumento>(entity =>
-            {
-                entity.HasKey(e => e.DocIid);
-
-                entity.ToTable("tipo_documento");
-
-                entity.Property(e => e.DocIid)
-                    .HasColumnName("doc_iid")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.DocDescripcion)
-                    .IsRequired()
-                    .HasColumnName("doc_descripcion")
-                    .HasColumnType("varchar(20)");
-            });
-
-            modelBuilder.Entity<TipoFamiliar>(entity =>
-            {
-                entity.HasKey(e => e.ParIid);
-
-                entity.ToTable("tipo_familiar");
-
-                entity.Property(e => e.ParIid)
-                    .HasColumnName("par_iid")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.ParDescripcion)
-                    .IsRequired()
-                    .HasColumnName("par_descripcion")
-                    .HasColumnType("varchar(50)");
-            });
-
             modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.HasKey(e => e.usu_iid);
@@ -388,22 +315,6 @@ namespace PanicHealth.Models
                     .HasConstraintName("usuario_ibfk_3");
             });
 
-            modelBuilder.Entity<UsuarioEstado>(entity =>
-            {
-                entity.HasKey(e => e.UsuarioestadoIid);
-
-                entity.ToTable("usuario_estado");
-
-                entity.Property(e => e.UsuarioestadoIid)
-                    .HasColumnName("usuarioestado_iid")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.UsuarioestadoDescripcion)
-                    .IsRequired()
-                    .HasColumnName("usuarioestado_descripcion")
-                    .HasColumnType("varchar(255)");
-            });
-
             modelBuilder.Entity<UsuarioPaciente>(entity =>
             {
                 entity.HasKey(e => e.UsupUsuIid);
@@ -427,6 +338,98 @@ namespace PanicHealth.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("usuario_paciente_ibfk_1");
             });
+
+
+            // Solo tienen GET
+            modelBuilder.Entity<AccionTipo>(entity =>
+            {
+                entity.HasKey(e => e.AccIid);
+
+                entity.ToTable("accion_tipo");
+
+                entity.Property(e => e.AccIid)
+                    .HasColumnName("acc_iid")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.AccDescripcion)
+                    .IsRequired()
+                    .HasColumnName("acc_descripcion")
+                    .HasColumnType("varchar(50)");
+            });
+
+            modelBuilder.Entity<ObraSocial>(entity =>
+            {
+                entity.HasKey(e => e.OsIid);
+
+                entity.ToTable("obra_social");
+
+                entity.Property(e => e.OsIid)
+                    .HasColumnName("os_iid")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.OsDireccion)
+                    .IsRequired()
+                    .HasColumnName("os_direccion")
+                    .HasColumnType("varchar(50)");
+
+                entity.Property(e => e.OsNombre)
+                    .IsRequired()
+                    .HasColumnName("os_nombre")
+                    .HasColumnType("varchar(50)");
+
+                entity.Property(e => e.OsTelefono)
+                    .IsRequired()
+                    .HasColumnName("os_telefono")
+                    .HasColumnType("varchar(50)");
+            });
+
+            modelBuilder.Entity<TipoDocumento>(entity =>
+            {
+                entity.HasKey(e => e.DocIid);
+
+                entity.ToTable("tipo_documento");
+
+                entity.Property(e => e.DocIid)
+                    .HasColumnName("doc_iid")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.DocDescripcion)
+                    .IsRequired()
+                    .HasColumnName("doc_descripcion")
+                    .HasColumnType("varchar(20)");
+            });
+
+            modelBuilder.Entity<TipoFamiliar>(entity =>
+            {
+                entity.HasKey(e => e.ParIid);
+
+                entity.ToTable("tipo_familiar");
+
+                entity.Property(e => e.ParIid)
+                    .HasColumnName("par_iid")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.ParDescripcion)
+                    .IsRequired()
+                    .HasColumnName("par_descripcion")
+                    .HasColumnType("varchar(50)");
+            });
+
+            modelBuilder.Entity<UsuarioEstado>(entity =>
+            {
+                entity.HasKey(e => e.UsuarioestadoIid);
+
+                entity.ToTable("usuario_estado");
+
+                entity.Property(e => e.UsuarioestadoIid)
+                    .HasColumnName("usuarioestado_iid")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.UsuarioestadoDescripcion)
+                    .IsRequired()
+                    .HasColumnName("usuarioestado_descripcion")
+                    .HasColumnType("varchar(255)");
+            });           
 
             modelBuilder.Entity<UsuarioTipo>(entity =>
             {

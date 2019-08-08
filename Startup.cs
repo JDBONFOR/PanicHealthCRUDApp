@@ -12,7 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using PanicHealth.Models;
-using PanicHealth.Repositories;
+using PanicHealth.Repository;
 
 namespace PanicHealth
 {
@@ -35,6 +35,10 @@ namespace PanicHealth
                 opt.UseMySql(connection));
 
             services.AddScoped<UsuarioRepository>();
+            services.AddScoped<ProfesionalRepository>();
+            services.AddScoped<PacienteRepository>();
+            services.AddScoped<PacienteContactoRepository>();
+            services.AddScoped<PacienteHistorialRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

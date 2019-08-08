@@ -6,7 +6,7 @@ using PanicHealth.Models;
 using Newtonsoft.Json.Linq;
 using System.Reflection;
 
-namespace PanicHealth.Repositories
+namespace PanicHealth.Repository
 {
     public class UsuarioRepository
     {
@@ -15,6 +15,7 @@ namespace PanicHealth.Repositories
         // Defino el contexto a utilizar
         private panicHealthAppContext _context = null;
 
+        // Constructor
         public UsuarioRepository(panicHealthAppContext context)
         {
             Usuario = context.Set<Usuario>();
