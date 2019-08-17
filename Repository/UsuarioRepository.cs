@@ -27,7 +27,7 @@ namespace PanicHealth.Repository
             return Usuario.ToList();
         }
 
-        public Usuario createUser(Usuario usuario)
+        public Usuario CreateUser(Usuario usuario)
         {
             Usuario.Add(usuario);
             _context.SaveChanges();
@@ -47,7 +47,7 @@ namespace PanicHealth.Repository
             return usuario;
         }
 
-        public Usuario updateUser(int id, JObject jsonEntity)
+        public Usuario UpdateUser(int id, JObject jsonEntity)
         {
             // GET ENTITY
             var entityUpd = GetUsersById(id);

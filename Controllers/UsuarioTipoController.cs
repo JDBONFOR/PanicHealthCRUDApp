@@ -11,5 +11,27 @@ namespace PanicHealth.Controllers
     [ApiController]
     public class UsuarioTipoController : ControllerBase
     {
+        private readonly UsuarioTipoRepository _usuarioTipoRepository = null;
+
+        // Constructor
+        public UsuarioTipoController(UsuarioTipoRepository usuarioTipoRepository)
+        {
+            _usuarioTipoRepository = usuarioTipoRepository;
+        }
+
+        // GET api/values
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> Get()
+        {
+            try
+            {
+                var tipoUsuarios = _usuarioTipoRepository.GetUsuarioTipos();
+                return Ok(tipoUsuarios);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
     }
 }

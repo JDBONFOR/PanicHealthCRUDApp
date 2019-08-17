@@ -11,7 +11,7 @@ namespace PanicHealth.Repository
     public class TipoDocumentoRepository
     {
         // Hago el DbSet<NombreDeTabla>
-        public DbSet<TipoDocumento> TipoDocumento { get; }
+        public DbSet<TipoDocumento> TipoDocumento { get; set; }
         // Defino el contexto a utilizar
         private panicHealthAppContext _context = null;
 

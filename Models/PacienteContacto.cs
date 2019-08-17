@@ -3,18 +3,15 @@ using System.Collections.Generic;
 
 namespace PanicHealth.Models
 {
-    public partial class PacienteContacto
+    public class PacienteContacto
     {
-        public int ConIid { get; set; }
-        public int? ConPacIid { get; set; }
-        public string ConTelCelular { get; set; }
-        public string ConNombre { get; set; }
-        public string ConApellido { get; set; }
-        public string ConDireccion { get; set; }
-        public string ConTelOther { get; set; }
-        public int? ConParIid { get; set; }
-
-        public Paciente ConI { get; set; }
-        public TipoFamiliar ConParI { get; set; }
+        public int con_iid { get; set; }
+        public int? con_pac_iid { get; set; }
+        public string con_tel_celular { get; set; }
+        public string con_nombre { get; set; }
+        public string con_apellido { get; set; }
+        public string con_direccion { get; set; }
+        public string con_tel_other { get; set; }
+        public int? con_par_iid { get; set; }
     }
 }

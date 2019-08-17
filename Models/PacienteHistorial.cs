@@ -3,16 +3,13 @@ using System.Collections.Generic;
 
 namespace PanicHealth.Models
 {
-    public partial class PacienteHistorial
+    public class PacienteHistorial
     {
-        public int HistPacIid { get; set; }
-        public int? HistPacRenglon { get; set; }
-        public decimal? HistPacLatlong { get; set; }
-        public int? HistPacAccIid { get; set; }
-        public string HistPacResult { get; set; }
-        public DateTime? HistPacDatecreated { get; set; }
-
-        public AccionTipo HistPacAccI { get; set; }
-        public Paciente HistPacI { get; set; }
+        public int hist_pac_iid { get; set; }
+        public int? hist_pac_renglon { get; set; }
+        public decimal? hist_pac_latlong { get; set; }
+        public int? hist_pac_acc_iid { get; set; }
+        public string hist_pac_result { get; set; }
+        public DateTime? hist_pac_datecreated { get; set; }
     }
 }

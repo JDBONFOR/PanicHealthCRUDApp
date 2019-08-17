@@ -30,7 +30,7 @@ namespace PanicHealth.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 
@@ -48,7 +48,7 @@ namespace PanicHealth.Controllers
             try
             {
                 // El form debe venir en formato JSON, con todo el modelo completo de datos.
-                _usuarioRepository.createUser(user);
+                _usuarioRepository.CreateUser(user);
                 return Ok(user);
             }
             catch (Exception ex)
@@ -64,7 +64,7 @@ namespace PanicHealth.Controllers
             try
             {
                 // El form debe venir en formato JSON, con todo el modelo completo de datos.
-                var user = _usuarioRepository.updateUser(id, jsonEntity);
+                var user = _usuarioRepository.UpdateUser(id, jsonEntity);
                 return Ok(user);
             }
             catch (Exception ex)

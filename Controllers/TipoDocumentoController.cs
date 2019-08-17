@@ -11,5 +11,28 @@ namespace PanicHealth.Controllers
     [ApiController]
     public class TipoDocumentoController : ControllerBase
     {
+        private readonly TipoDocumentoRepository _tipoDocumentooRepository = null;
+
+        // Constructor
+        public TipoDocumentoController(TipoDocumentoRepository tipoDocumentoRepository)
+        {
+            _tipoDocumentooRepository = tipoDocumentoRepository;
+        }
+
+        // GET api/values
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> Get()
+        {
+            try
+            {
+                var tipoDocumentos = _tipoDocumentooRepository.GetTipoDocumento();
+                return Ok(tipoDocumentos);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
     }
 }

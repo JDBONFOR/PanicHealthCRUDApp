@@ -35,6 +35,7 @@ namespace PanicHealth
                 opt.UseMySql(connection));
 
             services.AddScoped<UsuarioRepository>();
+            services.AddScoped<UsuarioPacienteRepository>();
             services.AddScoped<ProfesionalRepository>();
             services.AddScoped<PacienteRepository>();
             services.AddScoped<PacienteContactoRepository>();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PanicHealth.Models
 {    
-    public partial class Usuario 
+    public class Usuario 
     { 
         public int usu_iid { get; set; }
         public string usu_dni { get; set; }
@@ -12,9 +12,5 @@ namespace PanicHealth.Models
         public int? usu_estado { get; set; }
         public int usu_tipo { get; set; }
         public string usu_email { get; set; }
-
-        public UsuarioEstado UsuEstadoNavigation { get; set; }
-        public UsuarioPaciente UsuI { get; set; }
-        public UsuarioTipo UsuTipoNavigation { get; set; }
     }
 }

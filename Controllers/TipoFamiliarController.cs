@@ -11,5 +11,27 @@ namespace PanicHealth.Controllers
     [ApiController]
     public class TipoFamiliarController : ControllerBase
     {
+        private readonly TipoFamiliarRepository _tipoFamiliarRepository = null;
+
+        // Constructor
+        public TipoFamiliarController(TipoFamiliarRepository tipoFamiliarRepository)
+        {
+            _tipoFamiliarRepository = tipoFamiliarRepository;
+        }
+
+        // GET api/values
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> Get()
+        {
+            try
+            {
+                var tipoFamiliar = _tipoFamiliarRepository.GetTipoFamiliar();
+                return Ok(tipoFamiliar);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
     }
 }

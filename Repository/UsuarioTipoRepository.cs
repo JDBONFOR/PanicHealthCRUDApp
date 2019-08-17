@@ -22,7 +22,7 @@ namespace PanicHealth.Repository
             _context = context;
         }
 
-        public List<UsuarioTipo> GetUsuarioTipo()
+        public List<UsuarioTipo> GetUsuarioTipos()
         {
             return UsuarioTipo.ToList();
         }

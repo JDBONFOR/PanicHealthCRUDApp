@@ -11,5 +11,27 @@ namespace PanicHealth.Controllers
     [ApiController]
     public class ObraSocialController : ControllerBase
     {
+        private readonly ObraSocialRepository _obraSocialRepository = null;
+
+        // Constructor
+        public ObraSocialController(ObraSocialRepository obraSocialRepository)
+        {
+            _obraSocialRepository = obraSocialRepository;
+        }
+
+        // GET api/values
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> Get()
+        {
+            try
+            {
+                var ObrasSociales = _obraSocialRepository.GetObraSocial();
+                return Ok(ObrasSociales);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
     }
 }

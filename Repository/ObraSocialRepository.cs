@@ -22,9 +22,9 @@ namespace PanicHealth.Repository
             _context = context;
         }
 
-        public List<TipoDocumento> GetTipoDocumento()
+        public List<ObraSocial> GetObraSocial()
         {
-            return TipoDocumento.ToList();
+            return ObraSocial.ToList();
         }
         
     }

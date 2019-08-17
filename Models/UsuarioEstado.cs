@@ -3,16 +3,10 @@ using System.Collections.Generic;
 
 namespace PanicHealth.Models
 {
-    public partial class UsuarioEstado
+    public class UsuarioEstado
     {
-        public UsuarioEstado()
-        {
-            Usuario = new HashSet<Usuario>();
-        }
+        public int usuarioestado_iid { get; set; }
+        public string usuarioestado_descripcion { get; set; }
 
-        public int UsuarioestadoIid { get; set; }
-        public string UsuarioestadoDescripcion { get; set; }
-
-        public ICollection<Usuario> Usuario { get; set; }
     }
 }
