@@ -5,6 +5,7 @@ namespace PanicHealth.Controllers
     {
         public AccionTipoController()
         {
+           
         }
     }
 }
