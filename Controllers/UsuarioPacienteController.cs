@@ -9,14 +9,14 @@ namespace PanicHealth.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccionTipoController : ControllerBase
+    public class UsuarioPacienteController : ControllerBase
     {
-        private readonly AccionTipoRepository _accionTipoRepository = null;
+        private readonly UsuarioPacienteRepository _usuarioPacienteRepository = null;
 
         // Constructor
-        public AccionTipoController(AccionTipoRepository accionTipoRepository)
+        public UsuarioPacienteController(UsuarioPacienteRepository usuarioPacienteRepository)
         {
-            _accionTipoRepository = accionTipoRepository;
+            _usuarioPacienteRepository = usuarioPacienteRepository;
         }
 
         // GET api/values
@@ -25,13 +25,14 @@ namespace PanicHealth.Controllers
         {
             try
             {
-                var acciones = _accionTipoRepository.GetAcciones();
-                return Ok(acciones);
+                var usuarioPaciente = _usuarioPacienteRepository.GetUsuarioPaciente();
+                return Ok(usuarioPaciente);
             }
             catch (Exception ex)
             {
                 return BadRequest(ex);
             }
         }
+
     }
 }

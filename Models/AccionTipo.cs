@@ -3,16 +3,9 @@ using System.Collections.Generic;
 
 namespace PanicHealth.Models
 {
-    public partial class AccionTipo
+    public class AccionTipo
     {
-        public AccionTipo()
-        {
-            PacienteHistorial = new HashSet<PacienteHistorial>();
-        }
-
-        public int AccIid { get; set; }
-        public string AccDescripcion { get; set; }
-
-        public ICollection<PacienteHistorial> PacienteHistorial { get; set; }
+        public int acc_iid { get; set; }
+        public string acc_descripcion { get; set; }
     }
 }

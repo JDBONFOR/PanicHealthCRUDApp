@@ -3,18 +3,11 @@ using System.Collections.Generic;
 
 namespace PanicHealth.Models
 {
-    public partial class ObraSocial
+    public class ObraSocial
     {
-        public ObraSocial()
-        {
-            Paciente = new HashSet<Paciente>();
-        }
-
-        public int OsIid { get; set; }
-        public string OsNombre { get; set; }
-        public string OsTelefono { get; set; }
-        public string OsDireccion { get; set; }
-
-        public ICollection<Paciente> Paciente { get; set; }
+        public int os_iid { get; set; }
+        public string os_nomber { get; set; }
+        public string os_telefono { get; set; }
+        public string os_direccion { get; set; }
     }
 }

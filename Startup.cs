@@ -40,6 +40,14 @@ namespace PanicHealth
             services.AddScoped<PacienteContactoRepository>();
             services.AddScoped<PacienteHistorialRepository>();
 
+            services.AddScoped<AccionTipoRepository>();
+            services.AddScoped<ObraSocialRepository>();
+            services.AddScoped<TipoDocumentoRepository>();
+            services.AddScoped<TipoFamiliarRepository>();
+            services.AddScoped<UsuarioEstadoRepository>();
+            services.AddScoped<UsuarioTipoRepository>();
+
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using PanicHealth.Models;
+using PanicHealth.Repository;
+using Newtonsoft.Json.Linq;
+
 namespace PanicHealth.Controllers
 {
-    public class TipoDocumentoController
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TipoDocumentoController : ControllerBase
     {
-        public TipoDocumentoController()
-        {
-        }
     }
 }

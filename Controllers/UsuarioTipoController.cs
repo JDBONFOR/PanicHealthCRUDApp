@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using PanicHealth.Models;
+using PanicHealth.Repository;
+using Newtonsoft.Json.Linq;
+
 namespace PanicHealth.Controllers
 {
-    public class UsuarioTipoController
+    [Route("api/[controller]")]
+    [ApiController]
+    public class UsuarioTipoController : ControllerBase
     {
-        public UsuarioTipoController()
-        {
-        }
     }
 }
