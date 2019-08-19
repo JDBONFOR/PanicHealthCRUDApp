@@ -29,6 +29,9 @@ namespace PanicHealth.Repository
 
         public Usuario CreateUser(Usuario usuario)
         {
+
+            /** ToDo : Check if user not exist **/
+
             Usuario.Add(usuario);
             _context.SaveChanges();
             return usuario;
@@ -68,6 +71,11 @@ namespace PanicHealth.Repository
 
             // RETURN
             return entityUpd;
+        }
+
+        public Usuario ValidateUser(string dni)
+        {
+            return Usuario.Where(u => u.usu_dni == dni).FirstOrDefault();
         }
     }
 }
