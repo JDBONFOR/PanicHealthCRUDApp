@@ -31,10 +31,20 @@ namespace PanicHealth.Repository
         {
 
             /** ToDo : Check if user not exist **/
+            var user = ValidateUser(usuario.usu_dni);
 
-            Usuario.Add(usuario);
-            _context.SaveChanges();
-            return usuario;
+            if (user == null)
+            {
+                Usuario.Add(usuario);
+                _context.SaveChanges();
+                return usuario;
+            } else
+            {
+                return user;
+            }
+
+
+            
         }
 
         public Usuario GetUsersById(int id)

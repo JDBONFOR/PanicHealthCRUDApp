@@ -53,8 +53,16 @@ namespace PanicHealth.Controllers
             try
             {
                 // El form debe venir en formato JSON, con todo el modelo completo de datos.
-                _usuarioRepository.CreateUser(user);
-                return Ok(user);
+                var userCreated = _usuarioRepository.CreateUser(user);
+
+                if (userCreated == null)
+                {
+                    return Ok(user);
+                } else
+                {
+                    return StatusCode(997, "El DNI ingresado ya existe en nuestra base de datos");
+                }
+                    
             }
             catch (Exception ex)
             {
